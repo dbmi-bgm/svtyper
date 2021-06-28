@@ -13,13 +13,13 @@ def confidence_interval(var, tag, alt_tag, max_ci_dist):
     try:
         ci = map(int, var.info[tag].split(','))
     except KeyError as e:
-        return [0, 0]
+        return [-20, 20]
         
     if ci[1] - ci[0] > max_ci_dist:
         try:
             ci = map(int, var.info[alt_tag].split(','))
         except KeyError as e:
-            return [0, 0]
+            return [-20, 20]
     return ci
 
 
